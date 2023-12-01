@@ -21,3 +21,11 @@ pip install --upgrade pip
 -格式化刷题记录，重新开始刷题
 -更新题库，修改了个别错误答案
 -需要安装新的库，具体见requirements.txt文件
+可以试试在终端输入
+pip install -r requirements.txt
+
+————————
+2.1更新log
+-修复了已知的bug
+-更新了题库，这一版应该是最接近老师的答案（比起前面改挺多滴）
+特别鸣谢@彭睿婧宝子的答案

@@ -75,6 +75,7 @@ def ans_question(form_type_index):
         else:
             print(random.choice(incorrect))
             error_doc.add_paragraph(f"{ques_lst.loc[i, 'Question']}\n{ques_lst.loc[i, 'Option']}\n你的答案：{user_ans}\n正确答案：{ques_lst.loc[i, 'Answer']}\n解析：{ques_lst.loc[i, 'Analysis']}\n\n\n")
+            error_doc.save('错题本.docx')
 
         print(f'正确答案是：{ques_lst.loc[i, "Answer"]}')
         print(ques_lst.loc[i, 'Analysis'])
@@ -93,8 +94,10 @@ def ans_question(form_type_index):
 # 程序入口
 def main():
     global appeared_questions
-    print('这是数导刷题小程序2.0，它将随机生成你想要的题型供你刷题。')
-    print('（注：答案及解析来自ChaGPT4.0，不保证答案准确性，答案如有出入以老师为准，遇到答案有疑问的请及时联系我！）')
+    print('这是数导刷题小程序2.1，它将随机生成你想要的题型供你刷题。')
+    print('（注：答案及解析来自ChaGPT4.0和同学的反馈，目前这版应该是最接近标准答案的力，遇到答案有疑问的请及时联系我！）')
+    print('客官用的顺手的话，v我5元助力我买电解质水（乞讨')
+    print()
     while True:
         try:
             choice = int(input('想写单选请输入1，\n想写多选请输入2，\n想写判断请输入3，\n退出程序请输入0，\n格式化刷题记录请输入-1。\n'))
@@ -102,7 +105,7 @@ def main():
                 break
             if choice == -1:
                 appeared_questions = {'1': set(), '2': set(), '3': set()}
-                print("刷题记录已格式化。有魄力，兄弟（抱拳）。")
+                print("刷题记录已格式化。有魄力兄弟（抱拳）。")
                 appeared_questions_for_json = {key: list(value) for key, value in appeared_questions.items()}
                 with open(memory_file, 'w') as file:
                     json.dump(appeared_questions_for_json, file)
